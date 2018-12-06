@@ -1,3 +1,4 @@
+start=`date +%s`
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -139,8 +140,13 @@ alias abash='bash -l'
 alias python=python3
 alias vi=vim
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+alias l='ls -ltrah'
 zstyle ':completion:*:*:vim:*' file-patterns '^*.class:source-files' '*:all-files'
 . ~/bin/autoAlias.sh
 prompt pure
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 cowCommand
+end=`date +%s`
+
+runtime=$((end-start))
+echo $runtime

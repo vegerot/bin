@@ -141,3 +141,8 @@ if has("autocmd")
           \ endif
   augroup END
 endif
+
+au BufRead,BufNewFile bash-fc-* set filetype=sh
+au BufRead,BufNewFile zsh* set filetype=sh
+
+

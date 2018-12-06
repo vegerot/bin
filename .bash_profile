@@ -1,3 +1,4 @@
+start=`date +%s`
 set -o vi
 . ~/.git-prompt.sh
 PROMPT_COMMAND=__prompt_command
@@ -85,3 +86,8 @@ eval "$(register-python-argcomplete conda)"
 export LS_OPTIONS=‘–color=auto’
 d=~/.dir_colors
 test -r $d && eval "$(dircolors $d)"
+
+end=`date +%s`
+
+runtime=$((end-start))
+echo $runtime

@@ -2,9 +2,11 @@
 
 import subprocess
 import re
+import os
 
 def main():
-    out=subprocess.check_output("sudo bash -c \"echo exit|dtruss bash -li|& less|grep '^open'\"",shell=True).decode('utf-8')
+    #print(os.environ['SHELL'])
+    out=subprocess.check_output("sudo zsh -c \"echo exit|dtruss zsh -li|& less|grep '^open'\"",shell=True).decode('utf-8')
     p=re.compile(r'open\(\"(?P<file>.*)\\0\".*\n')
     files=p.findall(out)
     #print(files)
