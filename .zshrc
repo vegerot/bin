@@ -1,4 +1,4 @@
-start=`date +%s`
+start=`gdate +%s.%N`
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -90,6 +90,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
+export workspace=$HOME/Documents/workspace
 export PYTHONPATH='$HOME/Library/Python/3.7/bin'
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 # added by Anaconda3 installer
@@ -134,7 +135,8 @@ mkcdir ()
 alias learn='. ~/bin/cowCommand.sh'
 alias ccat='pygmentize -g -O style=colorful'
 #alias ls='ls -FGh'
-alias ls='ls -Fh --color'
+#alias ls='ls -Fh --color'
+alias ls="colorls --sort-dirs"
 alias pman='man-preview'
 alias abash='bash -l'
 alias python=python3
@@ -143,10 +145,17 @@ alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
 alias l='ls -ltrah'
 zstyle ':completion:*:*:vim:*' file-patterns '^*.class:source-files' '*:all-files'
 . ~/bin/autoAlias.sh
+eval "$(rbenv init -)"
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+
 prompt pure
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 cowCommand
-end=`date +%s`
+end=`gdate +%s.%N`
 
-runtime=$((end-start))
-echo $runtime
+
+runtime=$( echo "$end - $start"|bc -l )
+
+#runtime=$(echo "$end - $start"|bc -l)
+echo "$runtime seconds"

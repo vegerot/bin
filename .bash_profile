@@ -1,4 +1,4 @@
-start=`date +%s`
+start=`gdate +%s.%N`
 set -o vi
 . ~/.git-prompt.sh
 PROMPT_COMMAND=__prompt_command
@@ -20,7 +20,7 @@ __prompt_command()
 	else
 		PS1+="${Blue}\u${Rcol}"
 	fi
-#	PS1+="\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\n\$ "
+	#PS1+="\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\n\$ "
 	PS1+="\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\033[35m$(__git_ps1)\033[m \n\$ "	
 
 }
@@ -60,7 +60,7 @@ mkcdir () {
 }
 
 
-export PS1
+#export PS1
 
 #export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\n\$ "
 export CLICOLOR=1
@@ -87,7 +87,7 @@ export LS_OPTIONS=‘–color=auto’
 d=~/.dir_colors
 test -r $d && eval "$(dircolors $d)"
 
-end=`date +%s`
+end=`gdate +%s.%N`
 
-runtime=$((end-start))
-echo $runtime
+runtime=$(echo "$end - $start"|bc -l)
+echo "$runtime seconds"
