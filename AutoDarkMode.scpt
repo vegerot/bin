@@ -1,19 +1,22 @@
-#!/usr/bin/osascript
+#!/usr/bin/env osascript
 repeat while true
 	
-	set sunrise to do shell script "~/bin/sunrise.sh"
-	set sunset to do shell script "~/bin/sunset.sh"
-	set sunriseTomorrow to do shell script "~/bin/sunriseTomorrow.sh"
+	set sunrise to do shell script "~/bin/sunrise.wl"
+	set sunset to do shell script "~/bin/sunset.wl"
+	set sunriseTomorrow to do shell script "~/bin/sunriseTomorrow.wl"
 	
 	
 	set sunriseTime to date sunrise
-	set sunriseTime to sunriseTime - 4 * 60 * 60
+	#set sunriseTime to sunriseTime - 5 * 60 * 60
 	
 	set sunsetTime to date sunset
-	set sunsetTime to sunsetTime - 4 * 60 * 60
+#set sunsetTime to sunsetTime - 5 * 60 * 60
 	
 	set sunriseTimeTomorrow to date sunriseTomorrow
-	set sunriseTimeTomorrow to sunriseTimeTomorrow + 20 * 60 * 60
+#set sunriseTimeTomorrow to sunriseTimeTomorrow
+	log sunrise
+	log sunset
+	log sunriseTimeTomorrow
 	
 	
 	set currentTime to (current date)
@@ -32,6 +35,7 @@ repeat while true
 			end if
 		end tell
 	end tell
-	delay waitUntil
+	log waitUntil
+	delay waitUntil + 60
 end repeat
 

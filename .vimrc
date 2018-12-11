@@ -20,6 +20,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'keith/swift.vim'
 
+Plugin 'rsmenon/vim-mathematica'
+
+Plugin 'applescript.vim'
+" Plugin 'Mathematica-Syntax-File'
+" Plugin 'Mathematica-Indent-File'
+
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}

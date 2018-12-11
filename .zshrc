@@ -81,6 +81,8 @@ plugins=(
   brew
   vi-mode  
   zsh-syntax-highlighting
+  history-substring-search
+  zsh-autosuggestions
 
 )
 

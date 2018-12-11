@@ -83,6 +83,7 @@ export PYTHONPATH='$HOME/Library/Python/3.7/bin'
 # added by Anaconda3 installer
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 eval "$(register-python-argcomplete conda)"
+alias python=python3
 export LS_OPTIONS=‘–color=auto’
 d=~/.dir_colors
 test -r $d && eval "$(dircolors $d)"
