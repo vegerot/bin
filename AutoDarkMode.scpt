@@ -35,7 +35,7 @@ repeat while true
 			end if
 		end tell
 	end tell
-	log waitUntil
+	log waitUntil/60/60
 	delay waitUntil + 60
 end repeat
 
