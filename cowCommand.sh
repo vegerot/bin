@@ -2,7 +2,7 @@
 
 while : ; do
 
-	output="$(whatis `ls -1 $(echo $PATH|tr ":" " ")| sort -R|head -1`)" && break
+    output="$(whatis `ls -1 $(echo $PATH|tr ":" " ")| sort -R|head -1`)" && break
 	#[ "$?" -eq "0" ] && break
 	
 done

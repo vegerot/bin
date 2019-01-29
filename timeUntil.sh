@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 ~/bin/timeLeft.py
-until [ $? == 0 ]; do
+until [[ $prev == 0 ]]; do
 	~/bin/timeLeft.py;
-	sleep 1; 
+	prev=$?;
+    sleep 1; 
 done
