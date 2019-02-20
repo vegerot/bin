@@ -60,36 +60,34 @@ for arg in $*; do
 	    args="$args $arg"
     esac
 done
-
-while [ "$1" != "" ]
-do
-    found=0
-    for d in /var/cache/man $manpath /usr/lib
+(
+    code=0
+    while [ "$1" != "" ]
     do
-        if [ -f $d/whatis ]
-        then
-            if grep -"$grepopt1" "$grepopt2""$1" $d/whatis
+        found=0
+        for d in /var/cache/man $manpath /usr/lib
+        do
+            if [ -f $d/whatis ]
             then
-                found=1
+                if grep -"$grepopt1" "$grepopt2""$1" $d/whatis
+                then
+                    found=1
 # Some people are satisfied with a single occurrence
 # But it is better to give all
 #               break
+                fi
             fi
+        done
+
+        if [ $found = 0 ]
+        then
+            echo "$1: nothing appropriate"
+            code=1
         fi
+
+        shift
     done
+    exit $code
+) | eval ${PAGER:-more -E}
+exit $PIPESTATUS
 
-    if [ $found = 0 ]
-    then
-        echo "$1: nothing appropriate"
-        #exit 1
-        code=1
-    fi
-    
-
-    shift
-
-done
-   # eval ${PAGER:-more -E} 
-#echo $code
-
-exit $code

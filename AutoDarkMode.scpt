@@ -14,9 +14,9 @@ repeat while true
 	
 	set sunriseTimeTomorrow to date sunriseTomorrow
 #set sunriseTimeTomorrow to sunriseTimeTomorrow
-	log sunrise
-	log sunset
-	log sunriseTimeTomorrow
+#	log sunrise
+#	log sunset
+#	log sunriseTimeTomorrow
 	
 	
 	set currentTime to (current date)

@@ -1,0 +1,14 @@
+. ~/bin/autoAlias.sh
+
+alias learn='~/bin/cowCommand.sh'
+
+#alias ls='ls -FGh'
+alias vi=vim
+alias python=python3
+alias pip=pip3
+alias abash='bash -l'
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+alias l='ls -ltrah'
+alias trash=mvtrash
+
+export iCloud="$HOME/Library/Mobile\\ Documents/com\~apple\~CloudDocs/"
