@@ -13,5 +13,7 @@ alias trash=mvtrash
 alias arp="sudo arp"
 alias arp-scan="sudo arp-scan"
 alias nmap="sudo nmap"
+alias htop="sudo htop"
+alias grep="grep --color=always"
 
 export iCloud="$HOME/Library/Mobile\\ Documents/com\~apple\~CloudDocs/"
