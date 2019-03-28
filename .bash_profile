@@ -67,7 +67,7 @@ if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew comma
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-source ~/bin/.aliases
+source .aliases
 cowCommand
 alias ?='. ~/bin/cowCommand.sh'
 #alias ls='ls -FGh'

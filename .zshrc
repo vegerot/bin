@@ -151,7 +151,7 @@ zstyle ':completion:*:*:vim:*' file-patterns '^*.class:source-files' '*:all-file
 eval "$(rbenv init -)"
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-source ~/bin/.aliases
+source .aliases
 #PROMPT
 prompt pure
 local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
