@@ -1,6 +1,5 @@
 start=`date +%s.%N`
 # If you come from bash you might have to change your $PATH.
-#echo first
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -131,26 +130,14 @@ source /etc/zsh_command_not_found
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias learn='. ~/bin/cowCommand.sh'
-alias learn='. ~/bin/cowCommand.sh'
-#alias ccat='pygmentize -g -O style=colorful'
-#alias ls='ls -FGh'
-#alias ls='ls -Fh --color'
-
+source .aliases
 alias ls='colorls --sort-dirs'
 alias lc='colorls -lA --sd'
+alias cdg="cd-gitroot"
 
-#alias pman='man-preview'
-alias abash='bash -l'
-alias python=python3
-alias pip=pip3
-alias vi=vim
-#alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
-alias l='ls -ltra'
 alias explore='explorer.exe `wslpath -w "$PWD"`'
 
 zstyle ':completion:*:*:vim:*' file-patterns '^*.class:source-files' '*:all-files'
-#. ~/bin/autoAlias.sh
 export home=/mnt/c/Users/mchco
 export iCloud=/mnt/c/Users/mchco/iCloudDrive
 export c=/mnt/c
@@ -167,8 +154,8 @@ export PATH="$PATH:$HOME/.local/bin"
 #echo fifth
 prompt pure
 PROMPT='%(1j.[%j] .)%'+$PROMPT
-#PROMPT='%F{blue}%~%f
-#%}%(1j.[%j] .)%+%(12V.%F{242}%12v%f .)%(?.%F{magenta}.%F{red})${prompt_pure_state[prompt]}%f'
+local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
+RPS1="${return_code}"
 PURE_CMD_MAX_EXEC_TIME=0.5
 cowCommand
 

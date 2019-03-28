@@ -135,14 +135,9 @@ mkcdir ()
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias learn='. ~/bin/cowCommand.sh'
-alias learn='~/bin/cowCommand.sh'
-#alias ccat='pygmentize -g -O style=colorful'
-#alias ls='ls -FGh'
-alias ls='ls -Fh --color'
+source .aliases
 #alias ls="colorls --sort-dirs"
 alias pman='man-preview'
-alias abash='bash -l'
 alias cdg="cd-gitroot"
 
 
@@ -151,9 +146,8 @@ zstyle ':completion:*:*:vim:*' file-patterns '^*.class:source-files' '*:all-file
 eval "$(rbenv init -)"
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-source .aliases
-#PROMPT
 prompt pure
+
 local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
 RPS1="${return_code}"
 
