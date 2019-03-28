@@ -84,7 +84,7 @@ plugins=(
   vi-mode  
   zsh-syntax-highlighting
   history-substring-search
-  zsh-autosuggestions
+# zsh-autosuggestions
   cd-gitroot
 )
 
