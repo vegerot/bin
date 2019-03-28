@@ -15,5 +15,6 @@ alias arp-scan="sudo arp-scan"
 alias nmap="sudo nmap"
 alias htop="sudo htop"
 alias grep="grep --color=always"
+alias diff="diff --color=always"
 
 export iCloud="$HOME/Library/Mobile\\ Documents/com\~apple\~CloudDocs/"
