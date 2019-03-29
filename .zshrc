@@ -84,10 +84,9 @@ plugins=(
   vi-mode  
   zsh-syntax-highlighting
   history-substring-search
-# zsh-autosuggestions
+  zsh-autosuggestions
   cd-gitroot
 )
-
 source $ZSH/oh-my-zsh.sh
 setopt vi
 autoload -U edit-command-line
