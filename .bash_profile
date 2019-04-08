@@ -82,7 +82,7 @@ export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 export PYTHONPATH='$HOME/Library/Python/3.7/bin'
 export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 # added by Anaconda3 installer
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
 eval "$(register-python-argcomplete conda)"
 
 export workspace="$HOME/Documents/workspace"

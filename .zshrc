@@ -76,7 +76,7 @@ if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew comma
 plugins=(
   git
   osx
-  colored-man
+  colored-man-pages
   colorize
   pip
   python
