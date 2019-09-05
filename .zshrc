@@ -82,9 +82,9 @@ plugins=(
   python
   brew
   vi-mode  
-  zsh-syntax-highlighting
+  #zsh-syntax-highlighting
   history-substring-search
-  zsh-autosuggestions
+  #zsh-autosuggestions
   cd-gitroot
 )
 source $ZSH/oh-my-zsh.sh
@@ -138,6 +138,7 @@ source .aliases
 #alias ls="colorls --sort-dirs"
 alias pman='man-preview'
 alias cdg="cd-gitroot"
+alias ls="gls --color=tty -h"
 
 
 

@@ -209,6 +209,9 @@ let g:syntastic_mode_map = {
      \ "mode": "active"}
 let g:syntastic_loc_list_height = 3
 
+let g:syntastic_html_checkers=['eslint', 'w3']
+let g:syntastic_javascript_checkers=['eslint', 'w3']
+
 
 "Pylint
 let python_highlight_all=1

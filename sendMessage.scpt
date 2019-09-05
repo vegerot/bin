@@ -10,10 +10,12 @@ on run argv
         --if the time of currentTime is greater than sendTime and the time of currentTime is less than (sendTime+60) then
         if currentTime>sendTime and currentTime<sendTime+60
             my send_message(recipient, message)
+            set logMsg to  "sent " & message &" to " &recipient
+            log logMsg
             tell me to "exit"
             error number -128
         end if
-        delay 60 
+        delay sendTime-currentTime+3 
     end repeat
 end run     
 
