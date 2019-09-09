@@ -15,3 +15,5 @@ shelltitle $PWD
 
 bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 
+# Enable mouse scrolling and scroll bar history scrolling
+termcapinfo xterm* ti@:te@

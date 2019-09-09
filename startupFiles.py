@@ -3,10 +3,14 @@
 import subprocess
 import re
 import os
+import sys
+
 
 def main():
-    #print(os.environ['SHELL'])
-    out=subprocess.check_output("sudo bash -c \"echo exit|dtruss bash -li|& less|grep '^open'\"",shell=True).decode('utf-8')
+    print(os.environ['SHELL'])
+    shell=sys.argv[1]
+    print(shell)
+    out=subprocess.check_output(f"sudo {shell} -c \"echo exit|dtruss {shell} -li|& less|grep '^open'\"",shell=True).decode('utf-8')
     p=re.compile(r'open\(\"(?P<file>.*)\\0\".*\n')
     files=p.findall(out)
     #print(files)

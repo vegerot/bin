@@ -37,6 +37,8 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Vimjas/vim-python-pep8-indent'
 
 Plugin 'ivanov/vim-ipython'
+
+Plugin 'vim-python/python-syntax'
 " Plugin 'Mathematica-Syntax-File'
 " Plugin 'Mathematica-Indent-File'
 
@@ -215,6 +217,7 @@ let g:syntastic_javascript_checkers=['eslint', 'w3']
 
 "Pylint
 let python_highlight_all=1
+let g:python_highlight_all = 1
 syntax on
 
 
