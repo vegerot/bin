@@ -58,9 +58,9 @@ check_conda_env ()
 mkcdir () {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
-#if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
 
-eval "$(brew command-not-found-init)"
+if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
+
 #export PS1
 
 #export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\n\$ "
@@ -68,22 +68,21 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 source ~/.aliases
-#~/bin/cowCommand.sh
+~/bin/cowCommand.sh
 alias ?='. ~/bin/cowCommand.sh'
 #alias ls='ls -FGh'
 alias ccat='pygmentize -g -O style=colorful'
 alias ls='ls --color=auto -FGh'
 
 #. ~/bin/autoAlias.sh
-#shopt -s cdable_vars
+shopt -s cdable_vars
 export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
-#[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-. /usr/local/etc/bash_completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 export PYTHONPATH='$HOME/Library/Python/3.7/bin'
 export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 # added by Anaconda3 installer
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
 eval "$(register-python-argcomplete conda)"
 
 export workspace="$HOME/Documents/workspace"

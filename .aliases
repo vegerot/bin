@@ -9,6 +9,9 @@ alias pip=pip3
 alias abash='bash -l'
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 alias l='ls -ltrah'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 alias trash=mvtrash
 alias arp="sudo arp"
 alias arp-scan="sudo arp-scan"
@@ -16,5 +19,11 @@ alias nmap="sudo nmap"
 alias htop="sudo htop"
 alias grep="grep --color=always"
 alias diff="diff --color=always"
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 export iCloud="$HOME/Library/Mobile\\ Documents/com\~apple\~CloudDocs/"

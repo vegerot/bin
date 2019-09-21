@@ -1,5 +1,4 @@
 start=`gdate +%s.%N`
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -63,11 +62,12 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh-completions/conda-z
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 autoload -U promptinit && promptinit
-#rm -f ~/.zcompdump; compinit
+rm -f ~/.zcompdump; compinit
 source /usr/local/share/zsh-completions/helpers
 
-#if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
-eval "$(brew command-not-found-init)"
+
+if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -82,11 +82,11 @@ plugins=(
   python
   brew
   vi-mode  
-  zsh-syntax-highlighting
+  #zsh-syntax-highlighting
   history-substring-search
   #zsh-autosuggestions
   cd-gitroot
-) 
+)
 source $ZSH/oh-my-zsh.sh
 setopt vi
 autoload -U edit-command-line
@@ -95,10 +95,10 @@ bindkey -M vicmd v edit-command-line
 export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 export workspace=$HOME/Documents/workspace
 export PYTHONPATH=$HOME/Library/Python/3.7/bin:$HOME/Documents/workspace/manim2/manim/:/Users/maxcoplan/Documents/workspace/manim2/manim/manimlib
-#export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 # added by Anaconda3 installer
 export PATH="$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
+
 mkcdir ()
 {
 	mkdir -p -- "$1" &&
@@ -140,22 +140,19 @@ alias pman='man-preview'
 alias cdg="cd-gitroot"
 alias ls="gls --color=tty -h"
 
-#ZSH-SYTAX-HIGHLIGHTING
-ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=white
+
 
 zstyle ':completion:*:*:vim:*' file-patterns '^*.class:source-files' '*:all-files'
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-#eval "$(rbenv init -)"
-#source $(dirname $(gem which colorls))/tab_complete.sh
+eval "$(rbenv init -)"
+source $(dirname $(gem which colorls))/tab_complete.sh
 
 prompt pure
 
 local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
 RPS1="${return_code}"
 
-#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#echo "$(gdate +%s.%N) - $start"|bc -l
-#cowCommand
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+cowCommand
 end=`gdate +%s.%N`
 
 

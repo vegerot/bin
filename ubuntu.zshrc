@@ -60,6 +60,7 @@ ZSH_THEME=""
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 fpath=( ~/.oh-my-zsh/plugins/prompt  $fpath)
+fpath+=('/usr/lib/node_modules/pure-prompt/functions')
 autoload -U +X compinit && compinit
 #autoload -U +X bashcompinit && bashcompinit
 autoload -U promptinit && promptinit
@@ -80,7 +81,7 @@ plugins=(
   python
   vi-mode  
   zsh-syntax-highlighting
-  zsh-autosuggestions
+  #zsh-autosuggestions
   zsh-completions
   history-substring-search
 )
@@ -131,9 +132,9 @@ source /etc/zsh_command_not_found
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source .aliases
-alias ls='colorls --sort-dirs'
-alias lc='colorls -lA --sd'
-alias cdg="cd-gitroot"
+#alias ls='colorls --sort-dirs'
+#alias lc='colorls -lA --sd'
+#alias cdg="cd-gitroot"
 
 alias explore='explorer.exe `wslpath -w "$PWD"`'
 
@@ -143,11 +144,11 @@ export iCloud=/mnt/c/Users/mchco/iCloudDrive
 export c=/mnt/c
 #echo fourth
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 #rbenv global 2.5.3 && rbenv rehash
-source $(dirname $(gem which colorls))/tab_complete.sh
+#source $(dirname $(gem which colorls))/tab_complete.sh
 
 export PATH="$PATH:$HOME/.local/bin"
 
