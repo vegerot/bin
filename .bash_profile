@@ -43,7 +43,7 @@ EOF
 else
     echo "win: unsupported terminal app: $the_app"
     false
-fi
+    fi
 }
 
 check_conda_env ()
@@ -83,7 +83,7 @@ export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 export PYTHONPATH='$HOME/Library/Python/3.7/bin'
 export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 # added by Anaconda3 installer
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
 eval "$(register-python-argcomplete conda)"
 
 export workspace="$HOME/Documents/workspace"
@@ -106,7 +106,10 @@ fi
 #unset __conda_setup
 # <<< conda initialize <<<
 
+source "${HOME}/.iterm2_shell_integration.bash"
 end=`gdate +%s.%N`
 
 runtime=$(echo "$end - $start"|bc -l)
 echo "$runtime seconds"
+
+

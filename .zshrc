@@ -63,6 +63,12 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh-completions/conda-z
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 autoload -U promptinit && promptinit
+autoload -Uz run-help
+autoload -Uz run-help-git
+autoload -Uz run-help-svn
+autoload -Uz run-help-svk
+unalias run-help
+alias help=run-help
 #rm -f ~/.zcompdump; compinit
 source /usr/local/share/zsh-completions/helpers
 
@@ -86,6 +92,7 @@ plugins=(
   history-substring-search
   #zsh-autosuggestions
   cd-gitroot
+  zsh-apple-touchbar
 ) 
 source $ZSH/oh-my-zsh.sh
 setopt vi
@@ -96,7 +103,7 @@ export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 export workspace=$HOME/Documents/workspace
 export PYTHONPATH=$HOME/Library/Python/3.7/bin:$HOME/Documents/workspace/manim2/manim/:/Users/maxcoplan/Documents/workspace/manim2/manim/manimlib
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 # added by Anaconda3 installer
 export PATH="$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 mkcdir ()
@@ -155,14 +162,9 @@ RPS1="${return_code}"
 
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #echo "$(gdate +%s.%N) - $start"|bc -l
-#cowCommand
-end=`gdate +%s.%N`
+source ~/.iterm2_shell_integration.zsh
+cowCommand
 
-
-runtime=$( echo "$end - $start"|bc -l )
-
-#runtime=$(echo "$end - $start"|bc -l)
-echo "$runtime seconds"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -179,3 +181,7 @@ echo "$runtime seconds"
 #unset __conda_setup
 # <<< conda initialize <<<
 
+end=`gdate +%s.%N`
+runtime=$( echo "$end - $start"|bc -l )
+#runtime=$(echo "$end - $start"|bc -l)
+echo "$runtime seconds"

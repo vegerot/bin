@@ -39,6 +39,10 @@ Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'ivanov/vim-ipython'
 
 Plugin 'vim-python/python-syntax'
+
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
 " Plugin 'Mathematica-Syntax-File'
 " Plugin 'Mathematica-Indent-File'
 
@@ -48,6 +52,8 @@ Plugin 'vim-python/python-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+call glaive#Install()
+Glaive codefmt plugin[mappings]
 filetype plugin indent on    " required
 syntax on
 " To ignore plugin indent changes, instead use:
@@ -71,6 +77,22 @@ set shiftwidth=4
 set expandtab
 set nu
 set relativenumber
+
+
+augroup autoformat_settings
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+"  autocmd FileType python AutoFormatBuffer yapf
+  autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType vue AutoFormatBuffer prettier
+augroup END
+
+
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
 
@@ -224,5 +246,5 @@ syntax on
 au BufRead,BufNewFile bash-fc-* set filetype=sh
 au BufRead,BufNewFile zsh* set filetype=sh
 
-
-
+set title
+set clipboard=unnamed

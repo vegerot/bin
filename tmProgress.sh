@@ -12,4 +12,8 @@ checkOut ()
     done
 }
 
-sudo fs_usage -w -f filesys backupd | grep HFS_update --color=always|awk '{ for(i=4; i<=8; ++i) printf "%s ",  $i; print "" }'|checkOut
+if [[ -z $1 ]]; then
+    set -- 8
+fi
+
+sudo fs_usage -w -f filesys backupd | grep HFS_update --color=always|awk "{ for(i=4; i<=$1; ++i) printf \"%s \",  \$i; print \"\" }"|checkOut
