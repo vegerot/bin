@@ -33,5 +33,14 @@ echo "softwareupdate -l"
 softwareupdate -l
 read -p 'Would you like to upgrade macOS (y/n): ' upgradeMacOS
 if [[ "$upgradeMacOS" == "y" ]]; then
-    softwareupdate -i -a
+    softwareupdate -i -a --verbose
+fi
+
+
+echo "App Store"
+#open "macappstore://showUpdatesPage"
+mas outdated
+read -p 'Would you like to upgrade apps?  (y/n): ' upgradeApps
+if [[ "$upgradeApps" == "y" ]]; then
+    mas upgrade
 fi
