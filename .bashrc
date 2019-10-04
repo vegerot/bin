@@ -119,6 +119,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 . ~/bin/autoAlias.sh
 cowCommand
 
+. ~/bin/.aliases
 alias ?='. ~/bin/cowCommand.sh'
 alias ccat='pygmentize -g -O style=colorful'
 #alias ls='ls -FGh'
