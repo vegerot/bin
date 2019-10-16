@@ -3,7 +3,7 @@ altscreen on
 termcapinfo xterm* ti@:te@
 
 # look and feel
-caption always "%{= bb}%{+b w}%n %t %h %=%l %H %c"
+#caption always "%{= bb}%{+b w}%n %t %h %=%l %H %c"
 hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 
 activity "Activity in %t(%n)"
@@ -15,7 +15,3 @@ shelltitle $PWD
 
 bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 
-# Enable mouse scrolling and scroll bar history scrolling
-termcapinfo xterm* ti@:te@
-
-term screen-256color

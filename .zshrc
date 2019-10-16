@@ -103,7 +103,7 @@ export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 export workspace=$HOME/Documents/workspace
 export PYTHONPATH=$HOME/Library/Python/3.7/bin:$HOME/Documents/workspace/manim2/manim/:/Users/maxcoplan/Documents/workspace/manim2/manim/manimlib
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin:/usr/local/sbin"
 # added by Anaconda3 installer
 export PATH="$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 mkcdir ()

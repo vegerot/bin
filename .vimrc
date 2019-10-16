@@ -30,7 +30,9 @@ Plugin 'vim-syntastic/syntastic'
 
 Plugin 'nvie/vim-flake8'
 
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+if has('python3')
+    Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+endif
 
 Plugin 'Vimjas/vim-python-pep8-indent'
 
@@ -220,9 +222,9 @@ au BufNewFile,BufRead *.py
 
 
 "Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
@@ -235,6 +237,15 @@ let g:syntastic_loc_list_height = 3
 
 let g:syntastic_html_checkers=['eslint', 'w3']
 let g:syntastic_javascript_checkers=['eslint', 'w3']
+let g:syntastic_python_checkers = ['pylint']
+
+
+" Uncomment the following to have Vim jump to the last position when
+" " reopening a file
+ if has("autocmd")
+   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
 
 "make things difficult
 let g:HardMode_level = 'wannabe'

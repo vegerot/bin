@@ -7,5 +7,5 @@ while : ; do
 	#[ "$?" -eq "0" ] && break
 	
 done
-echo $output|cowsay -f $( cowsay -l| tail -n+2|tr " " "\n"|sort -R|head -1)
+echo $output|cowsay -f $( cowsay -l| tail -n+2|tr " " "\n"|sort -R|head -1)|lolcat
 IFS=$SAVEIFS

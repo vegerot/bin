@@ -25,17 +25,9 @@ conda update anaconda
 echo 
 echo "conda update --all"
 conda update --all
-echo "conda update -n astroconda3 --all"
-conda update -n astroconda3 --all
 
-echo
-echo "softwareupdate -l"
-softwareupdate -l
-read -p 'Would you like to upgrade macOS (y/n): ' upgradeMacOS
-if [[ "$upgradeMacOS" == "y" ]]; then
-    softwareupdate -i -a --verbose
-fi
-
+echo "Upgrading pip3"
+pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 -I {} sh -c "echo \"Updating {}\" && pip3 install -U {}"
 
 echo "App Store"
 #open "macappstore://showUpdatesPage"
@@ -44,3 +36,13 @@ read -p 'Would you like to upgrade apps?  (y/n): ' upgradeApps
 if [[ "$upgradeApps" == "y" ]]; then
     mas upgrade
 fi
+echo
+
+echo "softwareupdate -l"
+softwareupdate -l
+read -p 'Would you like to upgrade macOS (y/n): ' upgradeMacOS
+if [[ "$upgradeMacOS" == "y" ]]; then
+    softwareupdate -i -a --verbose
+fi
+
+
