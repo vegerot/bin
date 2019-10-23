@@ -140,12 +140,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export INPUTRC=$HOME/bin/.inputrc
 
-
+export PATH="$PATH:$HOME/.local/bin"
 export PYTHONPATH='$HOME/Library/Python/3.7/bin'
 # added by Anaconda3 installer
 export LS_OPTIONS=‘–color=auto’
-d=~/.dir_colors
+d=~/bin/.dir_colors
 test -r $d && eval "$(dircolors $d)"
 
 end=`date +%s.%N`

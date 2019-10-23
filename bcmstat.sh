@@ -1,1 +1,0 @@
-/home/pi/bcmstat/bcmstat.sh

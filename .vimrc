@@ -219,11 +219,25 @@ let g:syntastic_javascript_checkers=['eslint', 'w3']
 "Pylint
 let python_highlight_all=1
 let g:python_highlight_all = 1
+color desert
 syntax on
+
+
+" Uncomment the following to have Vim jump to the last position when                                                       
+" " reopening a file
+ if has("autocmd")
+   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
 
 
 au BufRead,BufNewFile bash-fc-* set filetype=sh
 au BufRead,BufNewFile zsh* set filetype=sh
+au BufRead,BufNewFile txt* set filetype=sh
+au BufNewFile,BufRead * if &syntax == '' | set syntax=sh | endif
+
+set clipboard=unnamedplus
+
 
 "make things difficult
 let g:HardMode_level = 'wannabe'
