@@ -234,9 +234,13 @@ endif
 au BufRead,BufNewFile bash-fc-* set filetype=sh
 au BufRead,BufNewFile zsh* set filetype=sh
 au BufRead,BufNewFile txt* set filetype=sh
+au BufRead,BufNewFile *.txt set filetype=sh
 au BufNewFile,BufRead * if &syntax == '' | set syntax=sh | endif
 
 set clipboard=unnamedplus
+
+"Allow saving of files as sudo when I forgot to start vim using sudo
+cmap w!! w !sudo tee >/dev/null %
 
 
 "make things difficult
