@@ -29,6 +29,9 @@ conda update --all
 echo "Upgrading pip3"
 pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 -I {} sh -c "echo \"Updating {}\" && pip3 install -U {}"
 
+echo "npm update -g"
+npm update -g
+
 echo "App Store"
 #open "macappstore://showUpdatesPage"
 mas outdated

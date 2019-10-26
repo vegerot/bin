@@ -85,6 +85,7 @@ export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 # added by Anaconda3 installer
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
 eval "$(register-python-argcomplete conda)"
+activate-global-python-argcomplete
 
 export workspace="$HOME/Documents/workspace"
 export LS_OPTIONS=‘–color=auto’

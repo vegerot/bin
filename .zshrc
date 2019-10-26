@@ -92,7 +92,7 @@ plugins=(
   history-substring-search
   #zsh-autosuggestions
   cd-gitroot
-  zsh-apple-touchbar
+  #zsh-apple-touchbar
 ) 
 source $ZSH/oh-my-zsh.sh
 setopt vi

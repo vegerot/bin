@@ -26,7 +26,8 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'justinmk/vim-syntax-extra'
 
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
+Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'nvie/vim-flake8'
 
@@ -226,19 +227,24 @@ au BufNewFile,BufRead *.py
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"
+"let g:syntastic_mode_map = {
+"     \ "mode": "active"}
+"let g:syntastic_loc_list_height = 3
+"
+"let g:syntastic_html_checkers=['eslint', 'w3']
+"let g:syntastic_javascript_checkers=['eslint', 'w3']
+"let g:syntastic_python_checkers = ['pylint']
 
-let g:syntastic_mode_map = {
-     \ "mode": "active"}
-let g:syntastic_loc_list_height = 3
-
-let g:syntastic_html_checkers=['eslint', 'w3']
-let g:syntastic_javascript_checkers=['eslint', 'w3']
-let g:syntastic_python_checkers = ['pylint']
-
+"YouCompleteMe
+"let g:ycm_always_populate_location_list = 1
+let g:ycm_clangd_binary_path = '/usr/local/Cellar/llvm/9.0.0/bin/clangd'
+let g:ycm_clangd_args = ['-log=verbose', '-pretty']
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " Uncomment the following to have Vim jump to the last position when
 " " reopening a file
@@ -262,6 +268,8 @@ syntax on
 
 au BufRead,BufNewFile bash-fc-* set filetype=sh
 au BufRead,BufNewFile zsh* set filetype=sh
+au BufRead,BufNewFile README,INSTALL,CREDITS set filetype=markdown
+au BufRead,BufRead * if &syntax == '' | set syntax=sh | endif
 
 set title
 set clipboard=unnamed
