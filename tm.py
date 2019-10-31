@@ -8,7 +8,8 @@ import argparse
 
 def main():
     #sys.stdin.reconfigure(encoding='utf-8', errors=None)
-    parser = argparse.ArgumentParser(description='A tutorial of argparse!')
+    parser = argparse.ArgumentParser(description='Get progress on your Time\
+                                     Machine backups')
     parser.add_argument("--ol", default=0, help="specifies level  relative to\
                         /")
     parser.add_argument("--il", default=0, help='specifies level relative to\

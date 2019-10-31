@@ -1,7 +1,7 @@
-source ~/.bash_profile
-#case $TERM in
-#    screen*)
-#         SCREENTITLE='\[\ek\w\e\\\]'
-#         ;;
-# esac
-#  PS1="${SCREENTITLE}${PS1}"
+#!/usr/bin/env bash
+BASHRC="$HOME"/bin/bashrc
+if test -f "$BASHRC"; then
+    source $BASHRC
+else
+    source /etc/skel/.bashrc
+fi
