@@ -11,7 +11,14 @@ export ZSH="/Users/maxcoplan/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="MaxCoplanTheme"
-ZSH_THEME=""
+ZSH_THEME="powerlevel10k/powerlevel10k"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,7 +88,7 @@ eval "$(brew command-not-found-init)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  osx
+  #osx
   colored-man-pages
   colorize
   pip
@@ -102,10 +109,21 @@ bindkey -M vicmd v edit-command-line
 export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 export workspace=$HOME/Documents/workspace
 export PYTHONPATH=$HOME/Library/Python/3.7/bin:$HOME/Documents/workspace/manim2/manim/:/Users/maxcoplan/Documents/workspace/manim2/manim/manimlib
+
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin:/usr/local/sbin"
 # added by Anaconda3 installer
 export PATH="$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
+export PATH="$PATH:/Users/maxcoplan/Library/Python/3.7/bin:/usr/local/lib/python3.7/site-packages"
+
+export FZF_DEFAULT_OPTS='--height=70% --preview "bat --color always {} || cat {}" --preview-window=right:60%:wrap'
+#export FZF_DEFAULT_OPTS='--height=70% --preview "~/.vim/bundle/fzf.vim/bin/preview.rb {}" --color --preview-window=right:60%:wrap'
+export FZF_DEFAULT_COMMAND='git ls-tree -r --name-only HEAD || rg --files 2>/dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+source "$HOME/.fzf-extras/fzf-extras.zsh"
+source "$HOME/.fzf-extras/fzf-extras.sh"
+
+
 mkcdir ()
 {
 	mkdir -p -- "$1" &&
@@ -155,7 +173,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #eval "$(rbenv init -)"
 #source $(dirname $(gem which colorls))/tab_complete.sh
 
-prompt pure
+#prompt pure
 
 local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
 RPS1="${return_code}"
@@ -180,6 +198,9 @@ cowCommand
 #fi
 #unset __conda_setup
 # <<< conda initialize <<<
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 end=`gdate +%s.%N`
 runtime=$( echo "$end - $start"|bc -l )

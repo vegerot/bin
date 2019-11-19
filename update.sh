@@ -7,6 +7,8 @@ if [[ "$upgradeBrew" == "y" ]]; then
     brew upgrade
 fi
 
+echo "brew cask upgrade"
+brew cask upgrade
 echo 
 echo "vim"
 
@@ -29,8 +31,10 @@ conda update --all
 echo "Upgrading pip3"
 pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 -I {} sh -c "echo \"Updating {}\" && pip3 install -U {}"
 
-echo "npm update -g"
-npm update -g
+echo "npm update -g --verbose"
+npm update -g --verbose
+echo "sudo npm update -g --verbose"
+sudo npm update -g --verbose
 
 echo "App Store"
 #open "macappstore://showUpdatesPage"

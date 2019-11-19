@@ -8,3 +8,4 @@ set completion-prefix-display-length 3
 set mark-symlinked-directories  On
 set show-all-if-ambiguous On
 set visible-stats On
+set -o emacs

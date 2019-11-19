@@ -1,5 +1,5 @@
 if filereadable(expand('~/bin/.gvimrc'))
-    so ~/bin/.gvimrc
+    so ~/bin/gvimrc
 else
     echo "Can't find ~/bin/.gvimrc"
     syntax on

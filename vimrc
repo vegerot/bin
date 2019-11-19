@@ -18,26 +18,35 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Vim HardTime
+Plugin 'takac/vim-hardtime'
+
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
+
+Plugin 'file:///usr/local/opt/fzf'
+Plugin 'junegunn/fzf.vim'
+
+Plugin 'airblade/vim-gitgutter'
+
+Plugin 'ycm-core/YouCompleteMe'
+
 Plugin 'keith/swift.vim'
 
 Plugin 'rsmenon/vim-mathematica'
 
-Plugin 'airblade/vim-gitgutter'
 
 Plugin 'justinmk/vim-syntax-extra'
 
 "Plugin 'vim-syntastic/syntastic'
-Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'nvie/vim-flake8'
 
-if has('python3')
-    Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-endif
 
 Plugin 'Vimjas/vim-python-pep8-indent'
 
-Plugin 'ivanov/vim-ipython'
+Plugin 'jupyter-vim/jupyter-vim'
 
 Plugin 'vim-python/python-syntax'
 
@@ -45,7 +54,6 @@ Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 
-Plugin 'wikitopian/hardmode'
 " Plugin 'Mathematica-Syntax-File'
 " Plugin 'Mathematica-Indent-File'
 
@@ -59,6 +67,23 @@ call glaive#Install()
 Glaive codefmt plugin[mappings]
 filetype plugin indent on    " required
 syntax on
+color desert
+
+
+    
+let g:netrw_liststyle=3 
+let g:netrw_banner = 0
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+set rtp+=/usr/local/opt/fzf
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading -p --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ?  fzf#vim#with_preview('right:50%:hidden')
+  \           : fzf#vim#with_preview('right:60%', '?'),
+  \   <bang>0)
+
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -255,9 +280,10 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 endif
 
 "make things difficult
-let g:HardMode_level = 'wannabe'
-let g:HardMode_hardmodeMsg = 'Don''t use this!'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+let g:hardtime_default_on = 1
+let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+let g:hardtime_showmsg = 1
+let g:hardtime_allow_different_key = 1
 
 
 "Pylint
