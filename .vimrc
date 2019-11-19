@@ -26,7 +26,9 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'justinmk/vim-syntax-extra'
 
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
+
+Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'nvie/vim-flake8'
 
@@ -40,6 +42,10 @@ Plugin 'vim-python/python-syntax'
 
 Plugin 'wikitopian/hardmode'
 
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
+
 " Plugin 'Mathematica-Syntax-File'
 " Plugin 'Mathematica-Indent-File'
 
@@ -49,6 +55,8 @@ Plugin 'wikitopian/hardmode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+call glaive#Install()
+Glaive codefmt plugin[mappings]
 filetype plugin indent on    " required
 syntax on
 " To ignore plugin indent changes, instead use:
@@ -203,22 +211,26 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = {
-     \ "mode": "active"}
-let g:syntastic_loc_list_height = 3
-
-let g:syntastic_html_checkers=['eslint', 'w3']
-let g:syntastic_javascript_checkers=['eslint', 'w3']
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"
+"let g:syntastic_mode_map = {
+"     \ "mode": "active"}
+"let g:syntastic_loc_list_height = 3
+"
+"let g:syntastic_html_checkers=['eslint', 'w3']
+"let g:syntastic_javascript_checkers=['eslint', 'w3']
 
 
 "Pylint
 let python_highlight_all=1
 let g:python_highlight_all = 1
+
+"YouCompleteMe
+let g:ycm_clangd_args=['-log=verbose', '-pretty']
+nnoremap <C-]> :YcmCompleter GoToDefinition<CR>
 syntax on
 
 
