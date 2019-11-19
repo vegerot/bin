@@ -39,6 +39,6 @@ doDWM()
 }
 
 #xmodmap ~/.Xmodmap
-#xrandr --output HDMI-1 --mode 1920x1080
-#doDWM 
-. /etc/X11/xinit/xinitrc
+xrandr --output HDMI-1 --mode 1920x1080
+doDWM 
+#. /etc/X11/xinit/xinitrc
