@@ -28,6 +28,8 @@ Plugin 'airblade/vim-gitgutter'
 
 Plugin 'justinmk/vim-syntax-extra'
 
+Plugin 'will133/vim-dirdiff'
+
 Plugin 'vim-syntastic/syntastic'
 
 Plugin 'nvie/vim-flake8'
@@ -213,6 +215,12 @@ let g:syntastic_html_checkers=['eslint', 'w3']
 let g:syntastic_javascript_checkers=['eslint', 'w3']
 
 
+" Uncomment the following to have Vim jump to the last position when
+" " reopening a file
+ if has("autocmd")
+   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
 "Pylint
 let python_highlight_all=1
 syntax on

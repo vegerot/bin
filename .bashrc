@@ -126,7 +126,6 @@ alias ls='ls --color=auto -Fh'
 
 #. ~/bin/autoAlias.sh
 shopt -s cdable_vars
-export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
