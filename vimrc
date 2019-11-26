@@ -1,84 +1,130 @@
-"filetype plugin indent on
-"syntax on
-"
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set backspace=indent,eol,start
+call plug#begin('~/.vim/plugged')
 
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'tpope/vim-sensible'
+if has('nvim')
+        Plug 'vim-airline/vim-airline'
+        Plug 'vim-airline/vim-airline-themes'
+else
+    Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+endif
 " Vim HardTime
-Plugin 'takac/vim-hardtime'
+Plug 'takac/vim-hardtime'
 
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 
-Plugin 'file:///usr/local/opt/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 
-Plugin 'keith/swift.vim'
+Plug 'keith/swift.vim'
 
-Plugin 'rsmenon/vim-mathematica'
+Plug 'arnoudbuzing/wolfram-vim'
 
+Plug 'justinmk/vim-syntax-extra'
 
-Plugin 'justinmk/vim-syntax-extra'
-
-"Plugin 'vim-syntastic/syntastic'
-
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 
 
-Plugin 'Vimjas/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 
-Plugin 'jupyter-vim/jupyter-vim'
+Plug 'jupyter-vim/jupyter-vim'
 
-Plugin 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax'
 
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 
-" Plugin 'Mathematica-Syntax-File'
-" Plugin 'Mathematica-Indent-File'
-
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" All of your Plugs must be added before the following line
+call plug#end()
+" set the runtime path to include Vundle and initialize
+"set rtp+=~/.vim/bundle/Vundle.vim call vundle#begin()
+"" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+"
+"" let Vundle manage Vundle, required
+"Plugin 'VundleVim/Vundle.vim'
+"
+"" The following are examples of different formats supported.
+"" Keep Plugin commands between vundle#begin/end.
+"
+"if has('nvim')
+"        Plugin 'vim-airline/vim-airline'
+"        Plugin 'vim-airline/vim-airline-themes'
+"else
+"    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+"endif
+"" Vim HardTime
+"Plugin 'takac/vim-hardtime'
+"
+"Plugin 'tpope/vim-surround'
+"Plugin 'tpope/vim-vinegar'
+"
+"Plugin 'file:///usr/local/opt/fzf'
+"Plugin 'junegunn/fzf.vim'
+"
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'tpope/vim-fugitive'
+"
+"Plugin 'ycm-core/YouCompleteMe'
+"
+"Plugin 'keith/swift.vim'
+"
+"Plugin 'arnoudbuzing/wolfram-vim'
+"
+"Plugin 'justinmk/vim-syntax-extra'
+"
+""Plugin 'vim-syntastic/syntastic'
+"
+"Plugin 'nvie/vim-flake8'
+"
+"
+"Plugin 'Vimjas/vim-python-pep8-indent'
+"
+"Plugin 'jupyter-vim/jupyter-vim'
+"
+"Plugin 'vim-python/python-syntax'
+"
+"Plugin 'google/vim-maktaba'
+"Plugin 'google/vim-codefmt'
+"Plugin 'google/vim-glaive'
+"
+"" Plugin 'Mathematica-Syntax-File'
+"" Plugin 'Mathematica-Indent-File'
+"
+"" Install L9 and avoid a Naming conflict if you've already installed a
+"" different version somewhere else.
+"" Plugin 'ascenator/L9', {'name': 'newL9'}
+"
+"" All of your Plugins must be added before the following line
+"call vundle#end()            " required
 call glaive#Install()
 Glaive codefmt plugin[mappings]
 filetype plugin indent on    " required
 syntax on
 color desert
 
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+silent! call airline#extensions#whitespace#disable()
+let g:airline#extensions#ycm#enabled = 1
 
-    
-let g:netrw_liststyle=3 
+set wildmenu
+set wildmode=list:longest
+
+let g:netrw_liststyle=3
 let g:netrw_banner = 0
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 set rtp+=/usr/local/opt/fzf
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading -p --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   <bang>0 ?  fzf#vim#with_preview('right:50%:hidden')
   \           : fzf#vim#with_preview('right:60%', '?'),
   \   <bang>0)
@@ -105,6 +151,27 @@ set shiftwidth=4
 set expandtab
 set nu
 set relativenumber
+
+set scrolloff=1
+set showbreak=↪
+
+set foldmethod=indent
+set foldlevelstart=18
+"Mode Settings
+
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+
+"Cursor settings:
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
@@ -141,7 +208,7 @@ function ToggleHex()
         let b:oldbin=&bin
         " set new options
         setlocal binary " make sure it overrides any textwidth, etc.
-        silent :e " this will reload the file without trickeries 
+        silent :e " this will reload the file without trickeries
         "(DOS line endings will be shown entirely )
         let &ft="xxd"
         " set status
@@ -299,4 +366,5 @@ au BufRead,BufNewFile README,INSTALL,CREDITS set filetype=markdown
 au BufRead,BufRead * if &syntax == '' | set syntax=sh | endif
 
 set title
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus
+set timeoutlen=1000 ttimeoutlen=10

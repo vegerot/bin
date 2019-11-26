@@ -78,6 +78,7 @@ unalias run-help
 alias help=run-help
 #rm -f ~/.zcompdump; compinit
 source /usr/local/share/zsh-completions/helpers
+. "/usr/local/etc/profile.d/bash_completion.sh"
 
 #if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
 eval "$(brew command-not-found-init)"
@@ -105,13 +106,14 @@ source $ZSH/oh-my-zsh.sh
 setopt vi
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
-export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
-export workspace=$HOME/Documents/workspace
-export PYTHONPATH=$HOME/Library/Python/3.7/bin:$HOME/Documents/workspace/manim2/manim/:/Users/maxcoplan/Documents/workspace/manim2/manim/manimlib
+# 10ms for key sequences
+KEYTIMEOUT=1
+bindkey -M vicmd "" edit-command-line
+
+
 
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin:/usr/local/sbin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/usr/local/opt:/opt:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin:/usr/local/sbin"
 # added by Anaconda3 installer
 export PATH="$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
 export PATH="$PATH:/Users/maxcoplan/Library/Python/3.7/bin:/usr/local/lib/python3.7/site-packages"
