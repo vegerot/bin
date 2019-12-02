@@ -78,15 +78,14 @@ alias ls='ls --color=auto -FGh'
 #shopt -s cdable_vars
 export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 #[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-. /usr/local/etc/bash_completion
+. /usr/local/etc/bash_completion.d/*
 . "/usr/local/etc/profile.d/bash_completion.sh"
-
-export PYTHONPATH='$HOME/Library/Python/3.7/bin'
-export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
+source ~/.paths.sh
+#export PYTHONPATH='$HOME/Library/Python/3.7/bin'
+#export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
 # added by Anaconda3 installer
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
+#export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
 eval "$(register-python-argcomplete conda)"
-activate-global-python-argcomplete
 
 export workspace="$HOME/Documents/workspace"
 export LS_OPTIONS=‘–color=auto’

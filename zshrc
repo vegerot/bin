@@ -2,6 +2,7 @@ start=`gdate +%s.%N`
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+source ~/.paths.sh
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/maxcoplan/.oh-my-zsh"
@@ -110,13 +111,31 @@ zle -N edit-command-line
 KEYTIMEOUT=1
 bindkey -M vicmd "" edit-command-line
 
+precmd_functions+=(zle-keymap-select)
+#echo -ne "\e[5 q"
+zle-keymap-select () {
+    if [[ $KEYMAP == vicmd ]]; then
+        # the command mode for vi
+        echo -ne "\e[2 q"
+    else
+        # the insert mode for vi
+        echo -ne "\e[5 q"
+    fi
+}
+
+if [[ $'\e\x5b3D' == "$(echoti cub 3)" ]] &&
+   [[ $'\e\x5b33m' == "$(echoti setaf 3)" ]]; then
+  zstyle -e ':completion:*' list-colors $'reply=( "=(#b)(${(b)PREFIX})(?)([^ ]#)*=0=0=${PREFIX:+${#PREFIX}D${(l:$#PREFIX:: :):-…}\e\x5b}35=33" )'
+fi
+zstyle ':completion:*:*(directories|files)*' list-colors ''
+
 
 
 #export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/usr/local/opt:/opt:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin:/usr/local/sbin"
+#export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/lsof/bin:$PATH:/usr/local/opt:/opt:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin:/usr/local/sbin"
 # added by Anaconda3 installer
-export PATH="$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
-export PATH="$PATH:/Users/maxcoplan/Library/Python/3.7/bin:/usr/local/lib/python3.7/site-packages"
+#export PATH="$PATH:/Users/maxcoplan/bin:/Users/maxcoplan/anaconda3/bin"
+#export PATH="$PATH:/Users/maxcoplan/Library/Python/3.7/bin:/usr/local/lib/python3.7/site-packages"
 
 export FZF_DEFAULT_OPTS='--height=70% --preview "bat --color always {} || cat {}" --preview-window=right:60%:wrap'
 #export FZF_DEFAULT_OPTS='--height=70% --preview "~/.vim/bundle/fzf.vim/bin/preview.rb {}" --color --preview-window=right:60%:wrap'

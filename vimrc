@@ -1,6 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
 if has('nvim')
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
@@ -10,14 +13,11 @@ endif
 " Vim HardTime
 Plug 'takac/vim-hardtime'
 
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
 
-Plug '/usr/local/opt/fzf'
+Plug '/usr/local/opt/fzf' 
 Plug 'junegunn/fzf.vim'
 
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 Plug 'ycm-core/YouCompleteMe'
 
@@ -32,7 +32,7 @@ Plug 'nvie/vim-flake8'
 
 Plug 'Vimjas/vim-python-pep8-indent'
 
-Plug 'jupyter-vim/jupyter-vim'
+"Plug 'jupyter-vim/jupyter-vim', {'for': ['python'] }
 
 Plug 'vim-python/python-syntax'
 
@@ -105,8 +105,10 @@ call plug#end()
 "call vundle#end()            " required
 call glaive#Install()
 Glaive codefmt plugin[mappings]
-filetype plugin indent on    " required
-syntax on
+
+let g:python_host_prog="/usr/local/bin/python"
+let g:python3_host_prog="/usr/local/bin/python3"
+
 color desert
 
 let g:airline_powerline_fonts = 1
@@ -338,6 +340,7 @@ au BufNewFile,BufRead *.py
 let g:ycm_clangd_binary_path = '/usr/local/Cellar/llvm/9.0.0/bin/clangd'
 let g:ycm_clangd_args = ['-log=verbose', '-pretty']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+nmap <c-]> :YcmCompleter GoTo<CR>
 
 " Uncomment the following to have Vim jump to the last position when
 " " reopening a file
@@ -351,6 +354,7 @@ let g:hardtime_default_on = 1
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:hardtime_showmsg = 1
 let g:hardtime_allow_different_key = 1
+let g:list_of_resetting_keys  = ['2', '3', '4', '5', '6', '7', '8', '9', '0']
 
 
 "Pylint

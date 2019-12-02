@@ -3,7 +3,8 @@
 alias learn='~/bin/cowCommand.sh'
 
 #alias ls='ls -FGh'
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 alias python=python3
 alias pip=pip3
 alias abash='bash -l'
@@ -20,3 +21,5 @@ export workspace=$HOME/Documents/workspace
 export PYTHONPATH=$HOME/Library/Python/3.7/bin:$HOME/Documents/workspace/manim2/manim/:/Users/maxcoplan/Documents/workspace/manim2/manim/manimlib
 function locate { mdfind "kMDItemDisplayName == '$@'wc"; }
 export OPENER=open
+
+alias atv=atvremote
