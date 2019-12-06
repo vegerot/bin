@@ -19,7 +19,9 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'ycm-core/YouCompleteMe'
+"Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim',  {'tag': '*', 'branch': 'release'}
+Plug 'derekwyatt/vim-scala', {'for': ['scala','sbt', 'java']}
 
 Plug 'keith/swift.vim'
 
@@ -28,12 +30,8 @@ Plug 'arnoudbuzing/wolfram-vim'
 Plug 'justinmk/vim-syntax-extra'
 
 Plug 'nvie/vim-flake8'
-
-
 Plug 'Vimjas/vim-python-pep8-indent'
-
 "Plug 'jupyter-vim/jupyter-vim', {'for': ['python'] }
-
 Plug 'vim-python/python-syntax'
 
 Plug 'google/vim-maktaba'
@@ -42,70 +40,8 @@ Plug 'google/vim-glaive'
 
 " All of your Plugs must be added before the following line
 call plug#end()
-" set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim call vundle#begin()
-"" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-"
-"" let Vundle manage Vundle, required
-"Plugin 'VundleVim/Vundle.vim'
-"
-"" The following are examples of different formats supported.
-"" Keep Plugin commands between vundle#begin/end.
-"
-"if has('nvim')
-"        Plugin 'vim-airline/vim-airline'
-"        Plugin 'vim-airline/vim-airline-themes'
-"else
-"    Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-"endif
-"" Vim HardTime
-"Plugin 'takac/vim-hardtime'
-"
-"Plugin 'tpope/vim-surround'
-"Plugin 'tpope/vim-vinegar'
-"
-"Plugin 'file:///usr/local/opt/fzf'
-"Plugin 'junegunn/fzf.vim'
-"
-"Plugin 'airblade/vim-gitgutter'
-"Plugin 'tpope/vim-fugitive'
-"
-"Plugin 'ycm-core/YouCompleteMe'
-"
-"Plugin 'keith/swift.vim'
-"
-"Plugin 'arnoudbuzing/wolfram-vim'
-"
-"Plugin 'justinmk/vim-syntax-extra'
-"
-""Plugin 'vim-syntastic/syntastic'
-"
-"Plugin 'nvie/vim-flake8'
-"
-"
-"Plugin 'Vimjas/vim-python-pep8-indent'
-"
-"Plugin 'jupyter-vim/jupyter-vim'
-"
-"Plugin 'vim-python/python-syntax'
-"
-"Plugin 'google/vim-maktaba'
-"Plugin 'google/vim-codefmt'
-"Plugin 'google/vim-glaive'
-"
-"" Plugin 'Mathematica-Syntax-File'
-"" Plugin 'Mathematica-Indent-File'
-"
-"" Install L9 and avoid a Naming conflict if you've already installed a
-"" different version somewhere else.
-"" Plugin 'ascenator/L9', {'name': 'newL9'}
-"
-"" All of your Plugins must be added before the following line
-"call vundle#end()            " required
 call glaive#Install()
 Glaive codefmt plugin[mappings]
-
 let g:python_host_prog="/usr/local/bin/python"
 let g:python3_host_prog="/usr/local/bin/python3"
 
@@ -362,6 +298,7 @@ let python_highlight_all=1
 let g:python_highlight_all = 1
 set background=dark
 syntax on
+so ~/bin/cocrc.vim
 
 
 au BufRead,BufNewFile bash-fc-* set filetype=sh
