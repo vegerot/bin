@@ -1,4 +1,5 @@
 . ~/bin/autoAlias.sh
+. ~/.exports
 
 alias learn='~/bin/cowCommand.sh'
 
