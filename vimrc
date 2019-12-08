@@ -4,9 +4,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
-if has('nvim')
-        Plug 'vim-airline/vim-airline'
-        Plug 'vim-airline/vim-airline-themes'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Vim HardTime
@@ -21,7 +19,6 @@ Plug 'airblade/vim-gitgutter'
 "Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim',  {'tag': '*', 'branch': 'release'}
 Plug 'derekwyatt/vim-scala', {'for': ['scala','sbt', 'java']}
-Plug 'ycm-core/YouCompleteMe'
 
 Plug 'keith/swift.vim'
 

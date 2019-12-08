@@ -1,4 +1,4 @@
-start=`gdate +%s.%N`
+start=`date +%s.%N`
 set -o vi
 . ~/.git-prompt.sh
 PROMPT_COMMAND=__prompt_command
@@ -11,7 +11,7 @@ __prompt_command()
 
     local EXIT="$?"
     PROMPT_DIRTRIM=$((1+$(($(tput cols)/12))))
-    PS1=$(check_conda_env)
+    PS1=""
     local RCol='\[\e[0m\]'
     local Red='\[\e[0;31m\]'
     local Blue='\[\e[0;36m\]'
@@ -46,20 +46,11 @@ else
 fi
 }
 
-check_conda_env ()
-{
-    if [ ! -z "$CONDA_DEFAULT_ENV" ]; then
-        printf -- "%s" "\[\e[0;39m\][`basename $CONDA_DEFAULT_ENV`]\[\e[0m\] "
-    else
-        printf -- "%s" ""
-    fi
-}
 
 mkcdir () {
     mkdir -p -- "$1" && cd -P -- "$1"
 }
 
-if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
 
 #export PS1
 
@@ -80,32 +71,14 @@ export iCloud=$HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs/
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 export PYTHONPATH='$HOME/Library/Python/3.7/bin'
-export PATH="$PATH:$HOME/Library/Python/3.7/bin/"
-# added by Anaconda3 installer
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH:/Users/maxcoplan/bin:/usr/local/sbin:/Users/maxcoplan/anaconda3/bin"
-eval "$(register-python-argcomplete conda)"
 
 export workspace="$HOME/Documents/workspace"
 export LS_OPTIONS=‘–color=auto’
 d=~/.dir_colors
 test -r $d && eval "$(dircolors $d)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/Users/maxcoplan/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-if [ -f "/Users/maxcoplan/anaconda3/etc/profile.d/conda.sh" ]; then
-    . "/Users/maxcoplan/anaconda3/etc/profile.d/conda.sh" 
-else
-    export PATH="/Users/maxcoplan/anaconda3/bin:$PATH"
-fi
-#fi
-#unset __conda_setup
-# <<< conda initialize <<<
 
-end=`gdate +%s.%N`
+end=`date +%s.%N`
 
 runtime=$(echo "$end - $start"|bc -l)
 echo "$runtime seconds"
