@@ -98,10 +98,10 @@ test -r $d && eval "$(dircolors $d)"
 #if [ $? -eq 0 ]; then
 #    eval "$__conda_setup"
 #else
-if [ -f "/Users/maxcoplan/anaconda3/etc/profile.d/conda.sh" ]; then
-    . "/Users/maxcoplan/anaconda3/etc/profile.d/conda.sh" 
+if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/usr/local/anaconda3/etc/profile.d/conda.sh" 
 else
-    export PATH="/Users/maxcoplan/anaconda3/bin:$PATH"
+    export PATH="/usr/local/anaconda3/bin:$PATH"
 fi
 #fi
 #unset __conda_setup

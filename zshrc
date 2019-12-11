@@ -5,7 +5,7 @@ start=`gdate +%s.%N`
 source ~/.paths.sh
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/maxcoplan/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -129,10 +129,10 @@ cowCommand
 #if [ $? -eq 0 ]; then
 #    eval "$__conda_setup"
 #else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/maxcoplan/anaconda3/bin:$PATH"
+        export PATH="/usr/local/anaconda3/bin:$PATH"
     fi
 #fi
 #unset __conda_setup

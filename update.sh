@@ -19,6 +19,7 @@ if [[ "$upgradePython" == "y" ]]; then
     echo 
     echo "conda update conda"
     conda update conda
+    echo
     echo "conda update anaconda"
     conda update anaconda
     echo 
