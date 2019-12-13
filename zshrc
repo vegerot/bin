@@ -44,7 +44,7 @@ eval "$(brew command-not-found-init)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  #osx
+  osx
   colored-man-pages
   colorize
   pip
@@ -104,7 +104,7 @@ mkcdir ()
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source .aliases
+source ~/.aliases
 source ~/.functions
 alias pman='man-preview'
 alias cdg="cd-gitroot"

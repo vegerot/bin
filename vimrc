@@ -158,6 +158,8 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer autopep8
 augroup END
 
+
+
 "   PEP 8 indentation standards
 au BufNewFile,BufRead *.py
             \ set softtabstop=4 |
@@ -183,6 +185,7 @@ au BufRead,BufRead * if &syntax == '' | set syntax=sh | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <C-n> :NERDTreeToggle<CR>
 
 
 source ~/bin/vimFunctions.vim
