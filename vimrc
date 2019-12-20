@@ -4,8 +4,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-vinegar'
     Plug 'tpope/vim-fugitive'
+
+    Plug 'Raimondi/delimitMate'
+
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'edkolev/tmuxline.vim'
     
     " Vim HardTime
     Plug 'takac/vim-hardtime'
@@ -16,12 +20,15 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tmux-plugins/vim-tmux'
 
-    
     Plug 'airblade/vim-gitgutter'
     
     "Plug 'ycm-core/YouCompleteMe'
+        autocmd! User youcompleteme.vim YCM()
     Plug 'neoclide/coc.nvim',  {'tag': '*', 'branch': 'release'}
+        autocmd! User coc.nvim CocStart()
     Plug 'derekwyatt/vim-scala', {'for': ['scala','sbt', 'java']}
     
     Plug 'keith/swift.vim'
@@ -34,8 +41,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Vimjas/vim-python-pep8-indent'
     "Plug 'jupyter-vim/jupyter-vim', {'for': ['python'] }
     Plug 'vim-python/python-syntax'
-    
-    Plug 'ryanoasis/vim-devicons'
     
     Plug 'google/vim-maktaba'
     Plug 'google/vim-codefmt'
@@ -73,8 +78,17 @@ set smartindent
 set nu
 set relativenumber
 
-nnoremap o o<Esc>
-nnoremap O O<Esc>
+"""Autoclosing stuff
+""inoremap " ""<left>
+""inoremap ' ''<left>
+""inoremap ( ()<left>
+""inoremap [ []<left>
+""inoremap { {}<left>
+""inoremap {<CR> {<CR>}<ESC>O
+""inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"noremap {;<CR> {<CR>};<ESC>O
+
+nnoremap o o<Esc>==
+nnoremap O O<Esc>==
 
 set scrolloff=1
 set showbreak=↪
@@ -124,21 +138,30 @@ endfunction
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='random'
 silent! call airline#extensions#whitespace#disable()
-let g:airline#extensions#ycm#enabled = 1
+"let g:airline#extensions#ycm#enabled = 1
 
 "Window end
 
 "YouCompleteMe
-"let g:ycm_always_populate_location_list = 1
-let g:ycm_clangd_binary_path = '/usr/local/Cellar/llvm/9.0.0/bin/clangd'
-let g:ycm_clangd_args = ['-log=verbose', '-pretty']
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-nmap <c-]> :YcmCompleter GoTo<CR>
-
+function YCM()
+        "let g:ycm_always_populate_location_list = 1
+        let g:ycm_clangd_binary_path = '/usr/local/Cellar/llvm/9.0.0/bin/clangd'
+        let g:ycm_clangd_args = ['-log=verbose', '-pretty']
+        let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+        nmap <c-]> :YcmCompleter GoTo<CR>
+endfunction
 "coc
-so ~/bin/cocrc.vim
+function CocStart()
+        so ~/bin/cocrc.vim
+endfunction
+if has_key(plugs, 'YouCompleteMe')
+        call YCM()
+endif
+if has_key(plugs, "coc.nvim")
+        call CocStart()
+endif
 
 "Open to last position when reopening file
  if has("autocmd")
@@ -151,6 +174,7 @@ let g:hardtime_default_on = 1
 let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 let g:hardtime_showmsg = 1
 let g:hardtime_allow_different_key = 1
+let g:hardtime_ignore_buffer_patterns = [  "NERD.*" ]
 let g:list_of_resetting_keys  = ['2', '3', '4', '5', '6', '7', '8', '9', '0']
 
 "Formatter stuff
@@ -161,6 +185,7 @@ augroup autoformat_settings
   autocmd FileType python AutoFormatBuffer autopep8
 augroup END
 
+autocmd FileType text set spell
 
 
 "   PEP 8 indentation standards

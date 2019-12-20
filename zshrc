@@ -120,7 +120,7 @@ local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
 RPS1="${return_code}"
 
 source ~/.iterm2_shell_integration.zsh
-cowCommand
+#cowCommand
 
 
 # >>> conda initialize >>>
