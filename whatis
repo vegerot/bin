@@ -14,6 +14,7 @@
 #
 # keep old PATH - 000323 - Bryan Henderson
 # also look in /var/cache/man - 030801 - aeb
+#Editing January 2019 by Max Coplan
 
 program=`basename $0`
 
