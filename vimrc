@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'edkolev/tmuxline.vim'
+    "Plug 'tmux-plugins/vim-tmux'
     
     " Vim HardTime
 "    Plug 'takac/vim-hardtime'
@@ -22,7 +23,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'tmux-plugins/vim-tmux'
 
     Plug 'airblade/vim-gitgutter'
     
@@ -30,12 +30,15 @@ call plug#begin('~/.vim/plugged')
         autocmd! User youcompleteme.vim YCM()
     Plug 'neoclide/coc.nvim',  {'tag': '*', 'branch': 'release'}
         autocmd! User coc.nvim CocStart()
+
     Plug 'derekwyatt/vim-scala', {'for': ['scala','sbt', 'java']}
     
     Plug 'keith/swift.vim'
     
     Plug 'arnoudbuzing/wolfram-vim'
     
+    Plug 'hotoo/jsgf.vim'
+
     Plug 'justinmk/vim-syntax-extra'
     
     Plug 'nvie/vim-flake8'
@@ -93,6 +96,7 @@ nnoremap O O<Esc>==
 
 set scrolloff=1
 set showbreak=↪
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 set foldmethod=indent
 set foldlevelstart=18
@@ -141,13 +145,14 @@ call airline#add_inactive_statusline_func('WindowNumber')
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 silent! call airline#extensions#whitespace#disable()
-"let g:airline#extensions#ycm#enabled = 1
-
+"let g:tmuxline_preset = {'z'    : '#track'}
+let g:airline#extensions#tmuxline#enabled = 1
 "Window end
 
 "YouCompleteMe
 function YCM()
         "let g:ycm_always_populate_location_list = 1
+        let g:airline#extensions#ycm#enabled = 1
         let g:ycm_clangd_binary_path = '/usr/local/Cellar/llvm/9.0.0/bin/clangd'
         let g:ycm_clangd_args = ['-log=verbose', '-pretty']
         let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'

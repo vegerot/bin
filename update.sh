@@ -12,7 +12,7 @@ fi
 echo 
 echo "vim"
 
-nvim +PlugUpdate +qall
+nvim +PlugUpdate +CocUpdate +CocUpdateSync +qall
 
 read -p 'Would you like to upgrade Python (y/n): ' upgradePython
 if [[ "$upgradePython" == "y" ]]; then

@@ -19,6 +19,7 @@ alias diff="diff --color=always"
 
 #verbose
 alias rm="rm -v"
+alias mv="mv -v"
 alias cp="cp -v"
 alias ln="ln -v"
 

@@ -1,5 +1,6 @@
 start=`gdate +%s.%N`
 set -o vi
+source ~/.profile
 . ~/.git-prompt.sh
 PROMPT_COMMAND=__prompt_command
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -112,5 +113,3 @@ end=`gdate +%s.%N`
 
 runtime=$(echo "$end - $start"|bc -l)
 echo "$runtime seconds"
-
-
