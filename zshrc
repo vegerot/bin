@@ -32,7 +32,7 @@ autoload -Uz run-help-svk
 unalias run-help
 alias help=run-help
 
-source /usr/local/share/zsh-completions/helpers
+#source /usr/local/share/zsh-completions/helpers
 . "/usr/local/etc/profile.d/bash_completion.sh"
 
 #if brew command command-not-found-init > /dev/null 2>&1; then eval "$(brew command-not-found-init)"; fi
@@ -54,7 +54,6 @@ plugins=(
   zsh-syntax-highlighting
   history-substring-search
   #zsh-autosuggestions
-  cd-gitroot
   #zsh-apple-touchbar
 ) 
 source $ZSH/oh-my-zsh.sh
@@ -107,7 +106,6 @@ mkcdir ()
 source ~/.aliases
 source ~/.functions
 alias pman='man-preview'
-alias cdg="cd-gitroot"
 alias ls="gls --group-directories-first --color=tty -XhF"
 
 #ZSH-SYTAX-HIGHLIGHTING
@@ -120,7 +118,7 @@ local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
 RPS1="${return_code}"
 
 source ~/.iterm2_shell_integration.zsh
-#cowCommand
+cowCommand
 
 
 # >>> conda initialize >>>

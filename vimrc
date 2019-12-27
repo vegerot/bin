@@ -12,7 +12,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'edkolev/tmuxline.vim'
     
     " Vim HardTime
-    Plug 'takac/vim-hardtime'
+"    Plug 'takac/vim-hardtime'
+     Plug 'wikitopian/hardmode'
     
     
     Plug '/usr/local/opt/fzf' 
@@ -138,7 +139,7 @@ endfunction
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 let g:airline_powerline_fonts = 1
-let g:airline_theme='random'
+let g:airline_theme='powerlineish'
 silent! call airline#extensions#whitespace#disable()
 "let g:airline#extensions#ycm#enabled = 1
 
@@ -170,13 +171,9 @@ endif
 endif
 
 "make things difficult
-let g:hardtime_default_on = 1
-let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-let g:hardtime_showmsg = 1
-let g:hardtime_allow_different_key = 1
-let g:hardtime_ignore_buffer_patterns = [  "NERD.*" ]
-let g:list_of_resetting_keys  = ['2', '3', '4', '5', '6', '7', '8', '9', '0']
-
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+let g:HardMode_level = 'wannabe'
+let g:HardMode_hardmodeMsg = 'Don''t use this!'
 "Formatter stuff
 augroup autoformat_settings
   autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
@@ -220,3 +217,5 @@ source ~/bin/vimFunctions.vim
 set title
 set clipboard=unnamed,unnamedplus
 set timeoutlen=1000 ttimeoutlen=10
+
+highlight Pmenu ctermbg=LightCyan
