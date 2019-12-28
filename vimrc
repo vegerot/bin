@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'Raimondi/delimitMate'
 
+    Plug 'morhetz/gruvbox'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'edkolev/tmuxline.vim'
@@ -143,7 +144,7 @@ endfunction
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='gruvbox'
 silent! call airline#extensions#whitespace#disable()
 "let g:tmuxline_preset = {'z'    : '#track'}
 let g:airline#extensions#tmuxline#enabled = 1
@@ -218,9 +219,10 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 source ~/bin/vimFunctions.vim
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 set title
 set clipboard=unnamed,unnamedplus
 set timeoutlen=1000 ttimeoutlen=10
 
-highlight Pmenu ctermbg=LightCyan

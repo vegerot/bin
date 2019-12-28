@@ -7,4 +7,4 @@ export PATH="$PATH:$HOME/workspace/spark-2.4.4-bin-hadoop2.7/bin"
 
 export PYTHONPATH='$HOME/Library/Python/3.7/bin'
 export NODE_PATH='$NODE_PATH:/usr/local/lib/node_modules'
-
+export PATH="/usr/local/opt/ruby/bin:$PATH"
