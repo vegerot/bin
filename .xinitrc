@@ -38,7 +38,11 @@ doDWM()
     exec dwm
 }
 
-#xmodmap ~/.Xmodmap
+xmodmap ~/.Xmodmap
+xcape
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
 xrandr --output HDMI-1 --mode 1920x1080
-doDWM 
-#. /etc/X11/xinit/xinitrc
+#doDWM 
+exec i3
+. /etc/X11/xinit/xinitrc
