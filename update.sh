@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
-echo "brew upgrade"
-brew outdated||\
-    brew update&&\
-    read -p 'Would you like to upgrade Brew (y/n): ' upgradeBrew
-if [[ "$upgradeBrew" == "y" ]]; then
-    brew upgrade
-    echo "brew cask upgrade"
-    brew cask upgrade
+echo "sudo apt update"
+sudo apt update &&\
+    read -p 'Would you like to upgrade apt (y/n): ' upgradeApt
+if [[ "$upgradeApt" == "y" ]]; then
+    sudo apt upgrade
 fi
 
 echo 
 echo "vim"
 
-nvim +PlugUpdate +qall
+nvim +PlugUpdate +CocUpdate +CocUpdateSync +qall
 
-read -p 'Would you like to upgrade Python (y/n): ' upgradePython
+#read -p 'Would you like to upgrade Python (y/n): ' upgradePython
 if [[ "$upgradePython" == "y" ]]; then
     echo 
     echo "conda update conda"
@@ -46,20 +43,5 @@ gem update --system
 echo "sudo gem update"
 sudo gem update
 
-echo "App Store"
-#open "macappstore://showUpdatesPage"
-mas outdated
-read -p 'Would you like to upgrade apps?  (y/n): ' upgradeApps
-if [[ "$upgradeApps" == "y" ]]; then
-    mas upgrade
-fi
-echo
-
-echo "softwareupdate -l"
-softwareupdate -l
-read -p 'Would you like to upgrade macOS (y/n): ' upgradeMacOS
-if [[ "$upgradeMacOS" == "y" ]]; then
-    softwareupdate -i -a --verbose
-fi
-
-
+echo "sudo apt dist-upgrade"
+sudo apt dist-upgrade

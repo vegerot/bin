@@ -1,1 +1,1 @@
-../bcmstat/bcmstat.py
+/home/pi/bcmstat/bcmstat.py

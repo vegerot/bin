@@ -43,6 +43,7 @@ xcape
 setxkbmap -option ctrl:nocaps
 xcape -e 'Control_L=Escape'
 xrandr --output HDMI-1 --mode 1920x1080
+xrdb -merge ~/.Xresources
 #doDWM 
 exec i3
 . /etc/X11/xinit/xinitrc
