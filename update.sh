@@ -30,22 +30,25 @@ if [[ "$upgradePython" == "y" ]]; then
     echo 
     echo "conda update --all"
     conda update --all
-    
+
     echo "Upgrading pip3"
     pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 -I {} sh -c "echo \"Updating {}\" && pip3 install -U {}"
 fi
 
-echo "npm update -g --verbose"
-npm install npm -g
-npm update -g --verbose
-echo "sudo npm update -g --verbose"
-sudo npm update -g --verbose
+read -p 'Would you like to upgrade Node and Ruby (y/n): ' upgradeNode
+if [[ "$upgradeNode" == "y" ]]; then
+    echo "npm update -g --verbose"
+    npm install npm -g --force
+    npm update -g --verbose
+    echo "sudo npm update -g --verbose"
+    sudo npm update -g --verbose
 
-echo "gem update --system"
-gem update --system
+    echo "gem update --system"
+    gem update --system
 
-echo "sudo gem update"
-sudo gem update
+    echo "sudo gem update"
+    sudo gem update
+fi
 
 echo "App Store"
 #open "macappstore://showUpdatesPage"
