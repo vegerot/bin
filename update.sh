@@ -32,8 +32,9 @@ if [[ "$upgradePython" == "y" ]]; then
 fi
 
 echo "npm update -g --verbose"
-npm install npm -g
-npm update -g --verbose
+npm outdated
+npm install npm -g --force
+npm update -g
 echo "sudo npm update -g --verbose"
 sudo npm update -g --verbose
 
