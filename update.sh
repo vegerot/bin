@@ -37,9 +37,10 @@ fi
 
 read -p 'Would you like to upgrade Node and Ruby (y/n): ' upgradeNode
 if [[ "$upgradeNode" == "y" ]]; then
-    echo "npm update -g --verbose"
+   npm outdated
+    echo "npm update -g"
     npm install npm -g --force
-    npm update -g --verbose
+    npm update -g
     echo "sudo npm update -g --verbose"
     sudo npm update -g --verbose
 
@@ -51,7 +52,7 @@ if [[ "$upgradeNode" == "y" ]]; then
 fi
 
 echo "App Store"
-#open "macappstore://showUpdatesPage"
+# open "macappstore://showUpdatesPage"
 mas outdated
 read -p 'Would you like to upgrade apps?  (y/n): ' upgradeApps
 if [[ "$upgradeApps" == "y" ]]; then
