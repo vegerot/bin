@@ -4,3 +4,4 @@ if [ $0 != zsh ]; then
 else 
 	echo zsh
 fi
+man 
