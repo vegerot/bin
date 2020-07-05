@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-IFS=$(echo -en ":")
+IFS=":"
 while : ; do
     output="$(whatis `ls $PATH| sort -R|head -1`)" && break
 done
