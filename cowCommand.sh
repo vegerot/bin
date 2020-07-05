@@ -3,7 +3,7 @@ SAVEIFS=$IFS
 IFS=$(echo -en ":")
 while : ; do
 
-    output="$(whatis `ls $PATH| sort -R|head -1`)" && break 
+    output="$(whatis `ls $PATH| sort -R|head -1`)" && break
 	#[ "$?" -eq "0" ] && break
 	
 done 
