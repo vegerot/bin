@@ -12,5 +12,5 @@ done
 #	alias $(basename -s ".sh" $filename)="$filename"
 #done
 #for filename in ~/bin/*.wl; do
-#    alias $(basename -s ".wl" $filename)="$filename"
+#	alias $(basename -s ".wl" $filename)="$filename"
 #done
