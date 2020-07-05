@@ -8,4 +8,3 @@ while : ; do
 	
 done
 echo $output|cowsay -f $(cowsay -l| tail -n+2|tr " " "\n"|sort -R|head -1)|lolcat
-IFS=$SAVEIFS
