@@ -5,4 +5,3 @@ until out=$(timeLeft.py); do
 	sleep 1;
 done; }
 echo $out;
-exit 0
