@@ -12,7 +12,7 @@ checkOut ()
     done
 }
 
-if [[ -z $1 ]]; then
+if [ -z "$1" ]; then
     set -- 8
 fi
 
