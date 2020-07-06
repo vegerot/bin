@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-timeLeft.py
-until [ $? == 0 ]; do
+timeLeft.py || \
+{ sleep 1; \
+until out=$(timeLeft.py); do
 	sleep 1;
-	out=$(timeLeft.py);
-done
+done; }
 echo $out;
 exit 0
