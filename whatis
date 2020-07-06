@@ -89,5 +89,5 @@ done
 		shift
 	done
 	exit $code
-) | eval ${PAGER:-more -E}
+) | eval ${PAGER:-more}
 exit $PIPESTATUS
