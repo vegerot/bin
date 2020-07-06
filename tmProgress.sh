@@ -5,10 +5,10 @@ checkOut ()
 {
     prev=""
     while read -r data; do
-        if [[ $data != $prev ]]; then
-            echo $data
+        if [[ "$data" != "$prev" ]]; then
+            echo "$data"
         fi
-        prev=$data
+        prev="$data"
     done
 }
 
