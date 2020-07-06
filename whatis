@@ -16,7 +16,7 @@
 # also look in /var/cache/man - 030801 - aeb
 #Editing January 2019 by Max Coplan
 
-program=$(basename $0)
+program=$(basename "$0")
 
 # When man pages in your favorite locale look to grep like binary files
 # (and you use GNU grep) you may want to add the 'a' option to *grepopt1.
