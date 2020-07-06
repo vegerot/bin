@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 checkOut ()
 {
     prev=""
@@ -17,5 +18,5 @@ fi
 
 unbuffer sudo fs_usage -w -f filesys backupd | \
 grep HFS_update --color=always | \
-awk "{ for(i=4; i<=$1; ++i) printf \"%s \",  \$i; print \"\" }" | \
+awk '{ for(i=4; i<='"$1"'; ++i) printf "%s ",  $i; print "" }' | \
 checkOut
