@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 timeLeft.py && echo || { sleep 1;
 until out="$(timeLeft.py)"; do
 	sleep 1;
