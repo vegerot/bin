@@ -68,15 +68,12 @@ do
 	found=0
 	for d in /var/cache/man $manpath /usr/lib
 	do
-		if [ -f $d/whatis ]
+		if [ -f $d/whatis ] && grep -"$grepopt1" "$grepopt2""$1" $d/whatis
 		then
-			if grep -"$grepopt1" "$grepopt2""$1" $d/whatis
-			then
-				found=1
-				# Some people are satisfied with a single occurrence
-				# But it is better to give all
-				#break
-			fi
+			found=1
+			# Some people are satisfied with a single occurrence
+			# But it is better to give all
+			#break
 		fi
 	done
 
