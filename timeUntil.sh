@@ -1,5 +1,10 @@
 #!/bin/sh
-timeLeft.py && echo || { sleep 1;
-until out="$(timeLeft.py)"; do
+if timeLeft.py; then
+	echo
+else
 	sleep 1;
-done; echo "$out"; }
+	until out="$(timeLeft.py)"; do
+		sleep 1
+	done
+	echo "$out"
+fi
