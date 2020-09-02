@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -o xtrace
 echo "brew upgrade"
 brew outdated||\
     brew update&&\
@@ -67,4 +68,5 @@ if [[ "$upgradeMacOS" == "y" ]]; then
     softwareupdate -i -a --verbose
 fi
 
+set +o xtrace
 
