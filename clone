@@ -12,6 +12,8 @@ get_directory() {
 }
 get_directory_return=''
 
+#todo parse output instead of this shit
+#or copy into tmp dir and move out
 clone() {
   get_directory "${@: -1}" &&\
   git clone "$@" &&\
