@@ -40,7 +40,7 @@ read -p 'Would you like to upgrade Node and Ruby (y/n): ' upgradeNode
 if [[ "$upgradeNode" == "y" ]]; then
    npm outdated
     echo "npm update -g"
-    npm install npm -g --force
+    npm install npm@latest -g --force
     npm update -g
     echo "sudo npm update -g --verbose"
     sudo npm update -g --verbose
