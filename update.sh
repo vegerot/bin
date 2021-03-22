@@ -6,8 +6,8 @@ brew outdated||\
     read -p 'Would you like to upgrade Brew (y/n): ' upgradeBrew
 if [[ "$upgradeBrew" == "y" ]]; then
     brew upgrade
-    echo "brew cask upgrade"
-    brew cask upgrade
+    echo "brew upgrade --cask"
+    brew upgrade --cask
 fi
 
 echo 
@@ -40,16 +40,16 @@ read -p 'Would you like to upgrade Node and Ruby (y/n): ' upgradeNode
 if [[ "$upgradeNode" == "y" ]]; then
    npm outdated
     echo "npm update -g"
-    npm install npm@latest -g --force
+    npm install npm -g --force
     npm update -g
-    echo "sudo npm update -g --verbose"
-    sudo npm update -g --verbose
+    # echo "sudo npm update -g --verbose"
+    # sudo npm update -g --verbose
 
     echo "gem update --system"
     gem update --system
 
-    echo "sudo gem update"
-    sudo gem update
+    # echo "sudo gem update"
+    # sudo gem update
 fi
 
 echo "App Store"
