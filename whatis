@@ -16,7 +16,7 @@
 # also look in /var/cache/man - 030801 - aeb
 #Editing January 2019 by Max Coplan
 
-program=`basename $0`
+program=$(basename "$0")
 
 # When man pages in your favorite locale look to grep like binary files
 # (and you use GNU grep) you may want to add the 'a' option to *grepopt1.
@@ -30,65 +30,59 @@ code=0
 
 if [ $# = 0 ]
 then
-    echo "usage: $program keyword ..."
-    exit 1
+	echo "usage: $program keyword ..."
+	exit 1
 fi
 
-manpath=`man --path | tr : '\040'`
+manpath=$(man --path | tr ':' ' ')
 
 if [ "$manpath" = "" ]
 then
-    echo "$program: manpath is null"
-    exit 1
+	echo "$program: manpath is null"
+	exit 1
 fi
 
 args=
 for arg in $*; do
-    case $arg in
-        --version|-V|-v)
-	    echo "$program from man-1.6c"
-	    exit 0
-	    ;;
+	case $arg in
+		--version|-V|-v)
+		echo "$program from man-1.6c"
+		exit 0
+		;;
 	--help|-h)
-            echo "usage: $program keyword ..."
-	    exit 0
-	    ;;
+		echo "usage: $program keyword ..."
+		exit 0
+		;;
 	-*)
-	    echo "$program: $arg: unknown option"
-	    exit 1
-	    ;;
+		echo "$program: $arg: unknown option"
+		exit 1
+		;;
 	*)
-	    args="$args $arg"
-    esac
+		args="$args $arg"
+	esac
 done
-(
-    code=0
-    while [ "$1" != "" ]
-    do
-        found=0
-        for d in /var/cache/man $manpath /usr/lib
-        do
-            if [ -f $d/whatis ]
-            then
-                if grep -"$grepopt1" "$grepopt2""$1" $d/whatis
-                then
-                    found=1
-# Some people are satisfied with a single occurrence
-# But it is better to give all
-#               break
-                fi
-            fi
-        done
 
-        if [ $found = 0 ]
-        then
-            echo "$1: nothing appropriate"
-            code=1
-        fi
+code=0
+while [ "$1" ]
+do
+	found=0
+	for d in /var/cache/man $manpath /usr/lib
+	do
+		if [ -f $d/whatis ] && grep -"$grepopt1" "$grepopt2""$1" $d/whatis
+		then
+			found=1
+			# Some people are satisfied with a single occurrence
+			# But it is better to give all
+			#break
+		fi
+	done
 
-        shift
-    done
-    exit $code
-) | eval ${PAGER:-more -E}
-exit $PIPESTATUS
+	if [ $found = 0 ]
+	then
+		echo "$1: nothing appropriate"
+		code=1
+	fi
 
+	shift
+done
+exit $code

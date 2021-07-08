@@ -1,2 +1,2 @@
-echo $(whoami)
+whoami
 sudo su
