@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# final usage: 
+# final usage:
 #`clone https://github.com/foo/bar dir` should work, or `clone git@github.com/foo/bar` should work
 
 
@@ -21,15 +21,16 @@ clone() {
   return 0
 }
 
-tests () {
-    get_directory "https://github.com/vegerot/dotfiles" 
+# need capital `T` to avoid colission with `[`
+Test() {
+    get_directory "https://github.com/vegerot/dotfiles"
     if [[ "$get_directory_return" == 'dotfiles' ]]; then
       echo pass $get_directory_return
     else
       echo fail $get_directory_return
     fi
 
-    get_directory "ssh://max@github.com/vegerot/dotfiles.git" 
+    get_directory "ssh://max@github.com/vegerot/dotfiles.git"
     if [[ "$get_directory_return" == 'dotfiles' ]]; then
       echo pass $get_directory_return
     else
@@ -38,28 +39,28 @@ tests () {
 
     # from git-add manual.  Not a priority for me since I don't use this syntax often
 
-    get_directory "git://git.kernel.org/pub/scm/.../linux.git separate_directory" 
+    get_directory "git://git.kernel.org/pub/scm/.../linux.git separate_directory"
     if [[ "$get_directory_return" == 'separate_directory' ]]; then
       echo pass $get_directory_return
     else
       echo fail $get_directory_return
     fi
 
-    get_directory "ssh://max@rocks.xz:22/path/to/sshPort.git/" 
+    get_directory "ssh://max@rocks.xz:22/path/to/sshPort.git/"
     if [[ "$get_directory_return" == 'sshPort' ]]; then
       echo pass $get_directory_return
     else
       echo fail $get_directory_return
     fi
 
-    get_directory "git://rocks.xz:22/path/to/gitUrl.git" 
+    get_directory "git://rocks.xz:22/path/to/gitUrl.git"
     if [[ "$get_directory_return" == 'gitUrl' ]]; then
       echo pass $get_directory_return
     else
       echo fail $get_directory_return
     fi
 
-    get_directory "max@rocks.xz:22/path/to/scp.git" 
+    get_directory "max@rocks.xz:22/path/to/scp.git"
     if [[ "$get_directory_return" == 'scp' ]]; then
       echo pass $get_directory_return
     else
@@ -67,10 +68,14 @@ tests () {
     fi
 
     #Fuck you if you do this
-    get_directory "ssh://max@rocks.xz:22/~dickwad/I/hate/you.git/" 
+    get_directory "ssh://max@rocks.xz:22/~dickwad/I/hate/you.git/"
     if [[ "$get_directory_return" == 'you' ]]; then
       echo pass $get_directory_return
     else
       echo fail $get_directory_return
     fi
 }
+
+if [[ $1 == "test" ]]; then
+  Test
+fi
