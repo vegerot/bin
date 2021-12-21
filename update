@@ -3,6 +3,7 @@ set -o xtrace
 echo "brew upgrade"
 brew outdated||\
     brew update&&\
+    # TODO: don't ask to `brew upgrade` if there are no outdated packages
     read -p 'Would you like to upgrade Brew (y/n): ' upgradeBrew
 if [[ "$upgradeBrew" == "y" ]]; then
     brew upgrade
@@ -13,8 +14,8 @@ fi
 echo
 echo "vim"
 
+# `Plug` is so fast at updating, let's not even ask
 nvim +PlugUpdate +CocUpdate +CocUpdateSync +qall
-
 
 read -p 'Would you like to upgrade Node (y/n): ' upgradeNode
 if [[ "$upgradeNode" == "y" ]]; then
@@ -28,6 +29,7 @@ fi
 echo "App Store"
 # open "macappstore://showUpdatesPage"
 mas outdated
+# TODO: Don't ask to upgrade apps if nothing is outdated
 read -p 'Would you like to upgrade apps?  (y/n): ' upgradeApps
 if [[ "$upgradeApps" == "y" ]]; then
     mas upgrade
@@ -36,6 +38,7 @@ echo
 
 echo "softwareupdate -l"
 softwareupdate -l
+# TODO: Don't ask to upgrade macOS if nothing is outdated
 read -p 'Would you like to upgrade macOS (y/n): ' upgradeMacOS
 if [[ "$upgradeMacOS" == "y" ]]; then
     softwareupdate -i -a --verbose
