@@ -5,7 +5,7 @@ while : ; do
 
     output="$(man -f `ls $PATH| sort -R|head -1` 2>/dev/null)"  && break
 	#[ "$?" -eq "0" ] && break
-	
+
 done
-echo $output|cowsay -f $( cowsay -l| tail -n+2|tr " " "\n"|sort -R|head -1)|lolcat
+echo $output|cowsay -f $( cowsay -l| tail -n+2|tr " " "\n"|sort -R|head -1)|lolcat --force
 IFS=$SAVEIFS
