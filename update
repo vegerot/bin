@@ -15,11 +15,11 @@ echo
 echo "vim"
 
 # `Plug` is so fast at updating, let's not even ask
-nvim +PlugUpdate +CocUpdate +CocUpdateSync +qall
+nvim +PlugUpdate +qall
 
 read -p 'Would you like to upgrade Node (y/n): ' upgradeNode
 if [[ "$upgradeNode" == "y" ]]; then
-   npm outdated
+    npm outdated
     echo "npm update -g"
     npm install npm -g --force
     npm update -g
