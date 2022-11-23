@@ -12,7 +12,7 @@ if [[ "$upgradeBrew" == "y" ]]; then
 fi
 
 echo
-echo "vim"
+echo "neovim"
 
 # `Plug` is so fast at updating, let's not even ask
 nvim +PlugUpdate +qall
